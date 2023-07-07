@@ -1,2 +1,2 @@
 # tower-offence
-Our repository
+Our repository for the GMTK2023 game jam.

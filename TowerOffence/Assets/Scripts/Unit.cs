@@ -6,6 +6,11 @@ public class Unit : MonoBehaviour
 {
     [SerializeField] private int health = 5;
 
+    private void Awake()
+    {
+        GameManager.Instance.Units.Add(gameObject);
+    }
+
     public int Health 
     { 
         get => health;

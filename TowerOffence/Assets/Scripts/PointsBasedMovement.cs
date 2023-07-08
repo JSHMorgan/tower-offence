@@ -10,13 +10,13 @@ public class PointsBasedMovement : MonoBehaviour
     [SerializeField] private float pointDistance = 0.1f;
 
     private Transform[] points;
-    private int counter = 0;
 
     public float Speed
     {
         get => speed;
         private set => speed = value;
     }
+    public int CurrentPointTarget { get; private set; }
 
     private void Start()
     {
@@ -26,17 +26,17 @@ public class PointsBasedMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (counter == points.Length)
+        if (CurrentPointTarget == points.Length)
         {
             Destroy(gameObject);
             return;
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, points[counter].transform.position, speed * Time.fixedDeltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, points[CurrentPointTarget].transform.position, speed * Time.fixedDeltaTime);
 
         if (GetDistanceToCurrentPointTarget() < pointDistance)
         {
-            counter++;
+            CurrentPointTarget++;
         }
     }
 
@@ -54,6 +54,6 @@ public class PointsBasedMovement : MonoBehaviour
 
     public float GetDistanceToCurrentPointTarget()
     {
-        return Vector2.Distance(transform.position, points[counter].position);
+        return Vector2.Distance(transform.position, points[CurrentPointTarget].position);
     }
 }

@@ -31,12 +31,4 @@ public class GameManager : MonoBehaviour
         // Otherwise, destroy this instance.
         Destroy(this);
     }
-
-    private void Start()
-    {
-        foreach (var unit in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            Units.Add(unit);
-        }
-    }
 }

@@ -11,12 +11,15 @@ public class PointsBasedMovement : MonoBehaviour
 
     private Transform[] points;
 
+    public int CurrentPointTarget { get; set; } = 0;
+
+    public Transform[] Points { get => points; private set => points = value; }
+
     public float Speed
     {
         get => speed;
         private set => speed = value;
     }
-    public int CurrentPointTarget { get; private set; }
 
     private void Start()
     {

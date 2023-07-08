@@ -18,10 +18,10 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSecondsRealtime(Random.Range(spawnRateLowerBound, spawnRateUpperBound));
-            //Debug.Log("Generate player");
+            Debug.Log("Generate player");
             GameObject newUnit = Instantiate(playerPrefab, transform);
             GameManager.Instance.Units.Add(newUnit);
+            yield return new WaitForSecondsRealtime(Random.Range(spawnRateLowerBound, spawnRateUpperBound));
         }
     }
 }

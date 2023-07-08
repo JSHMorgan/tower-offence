@@ -14,7 +14,7 @@ public class ShootUnit : MonoBehaviour
 
     [SerializeField] private float radius = 5f;
     [SerializeField] private float rotationSpeed = 500f;
-    [Tooltip("The number of seconds between each attack fired.")]
+    [Tooltip("Number of projectiles fired per second.")]
     [SerializeField] private float fireRate = 2.0f;
     [SerializeField] private Sprite projectileSprite;
     [SerializeField] private GameObject projectilePrefab;
@@ -39,7 +39,8 @@ public class ShootUnit : MonoBehaviour
 
         // Make the tower face the unit it is currently firing at.
         float angle = Mathf.Atan2(target.transform.position.y - transform.position.y, target.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
-        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+        float offset = -90;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
     }
 
@@ -130,7 +131,7 @@ public class ShootUnit : MonoBehaviour
         {
             yield return new WaitUntil(() => target != null);
             InstantiateProjectile(target);
-            yield return new WaitForSeconds(fireRate);
+            yield return new WaitForSeconds(1.0f / fireRate);
         }
     }
 

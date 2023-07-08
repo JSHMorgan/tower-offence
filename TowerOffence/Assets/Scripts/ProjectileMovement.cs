@@ -19,7 +19,7 @@ public class ProjectileMovement : MonoBehaviour
         }
 
         // Get the speed of the projectile.
-        speed = Unit.GetComponent<PointsBasedMovement>().Speed * speed;
+        speed = Unit.GetComponent<PointsBasedMovement>().Speed + speed;
 
         // Make the projectile move towards & face towards the unit it is attacking.
         transform.position = Vector2.MoveTowards(transform.position, Unit.transform.position, speed * Time.fixedDeltaTime);

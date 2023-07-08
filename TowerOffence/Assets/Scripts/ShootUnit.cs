@@ -4,18 +4,19 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum AimingOption
-{
-    First,
-    Last
-}
-
 public class ShootUnit : MonoBehaviour
 {
+    public enum AimingOption
+    {
+        First,
+        Last
+    }
+
     [SerializeField] private float radius = 5f;
     [SerializeField] private float rotationSpeed = 500f;
     [Tooltip("The number of seconds between each attack fired.")]
     [SerializeField] private float fireRate = 2.0f;
+    [SerializeField] private Sprite projectileSprite;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private AimingOption aimingOption = AimingOption.First;
 
@@ -136,6 +137,7 @@ public class ShootUnit : MonoBehaviour
     private void InstantiateProjectile(GameObject unit)
     {
         projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        projectile.GetComponent<SpriteRenderer>().sprite = projectileSprite;
         projectile.GetComponent<ProjectileMovement>().Unit = unit;
     }
 }

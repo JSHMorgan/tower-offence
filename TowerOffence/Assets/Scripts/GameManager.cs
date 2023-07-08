@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     // Instances
-    private int health;
+    [SerializeField] private int health = 100;
     public int Health { get => health; set => health = value; }
     public List<GameObject> Units { get; private set; } = new();
 

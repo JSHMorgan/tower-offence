@@ -38,7 +38,7 @@ public class ShootUnit : MonoBehaviour
         GameObject[] units = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject unit in units)
         {
-            Debug.Log(unit);
+            //Debug.Log(unit);
             List<GameObject> targets = new();
 
             // Check if unit is visible to the main camera.

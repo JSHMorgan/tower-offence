@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
         _ = StartCoroutine(SpawnObject());
     }
 
-    IEnumerator SpawnObject()
+    private IEnumerator SpawnObject()
     {
         while (true)
         {

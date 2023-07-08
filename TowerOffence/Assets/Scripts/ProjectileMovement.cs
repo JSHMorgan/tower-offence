@@ -5,23 +5,11 @@ using UnityEngine;
 
 public class ProjectileMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5.0f;
+    [Tooltip("Speed is based upon the speed of the projectile plus the speed of the unit it's aiming for.")]
+    [SerializeField] private float projectileSpeed = 2.0f;
+    [SerializeField] private float acceleration = 1.0f;
     [SerializeField] private float unitDistance = 0.1f;
-
-    private GameObject unit = null;
-    public GameObject Unit 
-    {
-        private get
-        {
-            return unit;
-        }
-        set
-        {
-            unit = value;
-            bool gotComponent = unit.TryGetComponent(out PointsBasedMovement component);
-            speed = (gotComponent) ? component.Speed * 2.0f : 5.0f;
-        }
-    }
+    public GameObject Unit { get; set; }
 
     private void FixedUpdate()
     {
@@ -31,14 +19,19 @@ public class ProjectileMovement : MonoBehaviour
             return;
         }
 
-        // Make the projectile move towards & face towards the unit it is attacking.
-        transform.position = Vector2.MoveTowards(transform.position, Unit.transform.position, speed * Time.fixedDeltaTime);
+        // Get the speed of the projectile.
+        projectileSpeed += acceleration;
 
-        float angle = Mathf.Atan2(unit.transform.position.y - transform.position.y, unit.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
-        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+        // Make the projectile move towards the unit it's attacking.
+        transform.position = Vector2.MoveTowards(transform.position, Unit.transform.position, projectileSpeed * Time.fixedDeltaTime);
+
+        // Make the projectile face the unit it's moving towards.
+        float angle = Mathf.Atan2(Unit.transform.position.y - transform.position.y, Unit.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
+        float offset = -90;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
         transform.rotation = targetRotation;
 
-        // Destroy the Unit and GameObject when within a certain range.
+        // Destroy the Projectile when within a certain distance of the unit.
         if (Vector2.Distance(transform.position, Unit.transform.position) < unitDistance)
         {
             Destroy(gameObject);

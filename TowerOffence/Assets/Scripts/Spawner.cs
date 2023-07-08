@@ -5,6 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private float spawnRateLowerBound = 1.0f;
+    [SerializeField] private float spawnRateUpperBound = 3.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +18,7 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSecondsRealtime(Random.Range(2.0f, 3.5f));
+            yield return new WaitForSecondsRealtime(Random.Range(spawnRateLowerBound, spawnRateUpperBound));
             Debug.Log("Generate player");
             GameObject newUnit = Instantiate(playerPrefab, transform);
             GameManager.Instance.Units.Add(newUnit);

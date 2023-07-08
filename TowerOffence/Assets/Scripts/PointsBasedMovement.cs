@@ -34,7 +34,7 @@ public class PointsBasedMovement : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, points[counter].transform.position, speed * Time.fixedDeltaTime);
 
-        if (Vector2.Distance(transform.position, points[counter].position) < pointDistance)
+        if (GetDistanceToCurrentPointTarget() < pointDistance)
         {
             counter++;
         }
@@ -50,5 +50,10 @@ public class PointsBasedMovement : MonoBehaviour
             children.Add(child.transform);
         }
         return children.ToArray();
+    }
+
+    public float GetDistanceToCurrentPointTarget()
+    {
+        return Vector2.Distance(transform.position, points[counter].position);
     }
 }

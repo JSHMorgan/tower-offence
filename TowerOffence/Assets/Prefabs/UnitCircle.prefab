@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3690097866279232916}
   - component: {fileID: 3292914265488735072}
   - component: {fileID: 1039288576130058943}
+  - component: {fileID: -5421452336713103580}
   m_Layer: 0
   m_Name: UnitCircle
   m_TagString: Player
@@ -99,3 +100,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   pointDistance: 0.1
+--- !u!114 &-5421452336713103580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440129639781896293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dca7b1a563189b478c9e92f002be3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5

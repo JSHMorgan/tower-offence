@@ -27,6 +27,7 @@ public class ProjectileMovement : MonoBehaviour
     {
         if (Unit == null)
         {
+            Destroy(gameObject);
             return;
         }
 
@@ -41,6 +42,7 @@ public class ProjectileMovement : MonoBehaviour
         if (Vector2.Distance(transform.position, Unit.transform.position) < unitDistance)
         {
             Destroy(gameObject);
+            Unit.GetComponent<Unit>().Health--;
         }
     }
 }

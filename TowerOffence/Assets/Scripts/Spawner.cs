@@ -17,8 +17,9 @@ public class Spawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSecondsRealtime(Random.Range(2.0f, 3.5f));
-            Instantiate(playerPrefab, transform.position, Quaternion.identity);
             Debug.Log("Generate player");
+            GameObject newUnit = Instantiate(playerPrefab, transform);
+            GameManager.Instance.Units.Add(newUnit);
         }
     }
 }

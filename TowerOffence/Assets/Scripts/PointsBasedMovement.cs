@@ -4,13 +4,19 @@ using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class PointsBasedMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 5.0f;
     [SerializeField] private float pointDistance = 0.1f;
 
     private Transform[] points;
     private int counter = 0;
+
+    public float Speed
+    {
+        get => speed;
+        private set => speed = value;
+    }
 
     private void Start()
     {

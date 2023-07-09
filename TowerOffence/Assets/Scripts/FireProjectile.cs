@@ -51,10 +51,10 @@ public class FireProjectile : MonoBehaviour
         foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Player"))
         {
             bool isVisible = unit.GetComponent<SpriteRenderer>().isVisible;
-            bool hasPointsBasedMovement = unit.GetComponent<PointsBasedMovement>() == null;
-            bool isWithinRadius = Vector2.Distance(transform.position, unit.transform.position) > radius;
+            bool hasPointsBasedMovement = unit.GetComponent<PointsBasedMovement>() != null;
+            bool isWithinRadius = Vector2.Distance(transform.position, unit.transform.position) < radius;
 
-            if (!isVisible || hasPointsBasedMovement || isWithinRadius)
+            if (!isVisible || !hasPointsBasedMovement || !isWithinRadius)
             {
                 continue;
             }

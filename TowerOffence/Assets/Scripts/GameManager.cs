@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour
 
     // Instances
     [SerializeField] private int health = 100;
+    [SerializeField] private int money = 1000;
     public int Health { get => health; set => health = value; }
     public List<GameObject> Units { get; private set; } = new();
+    public int Money { get => money; set => money = value; }
 
     private void Awake()
     {

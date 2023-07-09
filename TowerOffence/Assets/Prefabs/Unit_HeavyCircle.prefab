@@ -100,6 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: -2413806693520163455, guid: be77cca741a523847bd4e057985acbda, type: 3}
   health: 10
+  speed: 3
+  cost: 20
+  damage: 5
 --- !u!114 &1039288576130058943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,5 +115,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93945ac94000b244b8782949e755f2e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
-  pointDistance: 0.1

@@ -102,6 +102,8 @@ MonoBehaviour:
   sprite: {fileID: 2747690628134850419, guid: 80dfce9f85e8bee44a23bfbe542900d9, type: 3}
   health: 5
   speed: 5
+  cost: 50
+  damage: 1
 --- !u!114 &1039288576130058943
 MonoBehaviour:
   m_ObjectHideFlags: 0

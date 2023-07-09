@@ -100,7 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: -2413806693520163455, guid: be77cca741a523847bd4e057985acbda, type: 3}
   health: 3
-  speed: 5
+  speed: 10
+  cost: 20
+  damage: 2
 --- !u!114 &1039288576130058943
 MonoBehaviour:
   m_ObjectHideFlags: 0

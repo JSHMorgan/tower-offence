@@ -8,6 +8,7 @@ public class LevelFinish : MonoBehaviour
     [SerializeField] private GameObject victoryPopup;
     [SerializeField] private GameObject defeatPopup;
 
+    // Only allows the "level" to finish once.
     private bool hasLevelFinished = false;
 
     // Update is called once per frame

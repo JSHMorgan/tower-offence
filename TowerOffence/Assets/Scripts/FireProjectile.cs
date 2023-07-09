@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.UI.CanvasScaler;
 
-public class ShootUnit : MonoBehaviour
+public class FireProjectile : MonoBehaviour
 {
     public enum AimingOption
     {
@@ -25,7 +26,7 @@ public class ShootUnit : MonoBehaviour
 
     private void Start()
     {
-        _ = StartCoroutine(FireProjectile());
+        _ = StartCoroutine(SpawnProjectile());
     }
     // Update is called once per frame
     private void FixedUpdate()
@@ -50,10 +51,10 @@ public class ShootUnit : MonoBehaviour
         foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Player"))
         {
             bool isVisible = unit.GetComponent<SpriteRenderer>().isVisible;
-            bool hasPointsBasedMovement = unit.GetComponent<PointsBasedMovement>() == null;
-            bool isWithinRadius = Vector2.Distance(transform.position, unit.transform.position) > radius;
+            bool hasPointsBasedMovement = unit.GetComponent<PointsBasedMovement>() != null;
+            bool isWithinRadius = Vector2.Distance(transform.position, unit.transform.position) < radius;
 
-            if (!isVisible || hasPointsBasedMovement || isWithinRadius)
+            if (!isVisible || !hasPointsBasedMovement || !isWithinRadius)
             {
                 continue;
             }
@@ -125,20 +126,15 @@ public class ShootUnit : MonoBehaviour
         return tempTarget;
     }
 
-    IEnumerator FireProjectile()
+    IEnumerator SpawnProjectile()
     {
         while (true)
         {
             yield return new WaitUntil(() => target != null);
-            InstantiateProjectile(target);
+            projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+            projectile.GetComponent<SpriteRenderer>().sprite = projectileSprite;
+            projectile.GetComponent<ProjectileMovement>().Unit = target;
             yield return new WaitForSeconds(1.0f / fireRate);
         }
-    }
-
-    private void InstantiateProjectile(GameObject unit)
-    {
-        projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
-        projectile.GetComponent<SpriteRenderer>().sprite = projectileSprite;
-        projectile.GetComponent<ProjectileMovement>().Unit = unit;
     }
 }

@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     // Instances
-    private int health;
+    [SerializeField] private int health = 100;
+    [SerializeField] private int money = 1000;
     public int Health { get => health; set => health = value; }
     public List<GameObject> Units { get; private set; } = new();
+    public int Money { get => money; set => money = value; }
 
     private void Awake()
     {

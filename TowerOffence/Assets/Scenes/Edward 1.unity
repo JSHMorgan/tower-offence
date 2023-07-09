@@ -229,7 +229,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0fe924cdad9e464085f4ce447dac023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 8440129639781896293, guid: 0bf82c751f5f3cd489d56dcb1bce8890, type: 3}
+  playerPrefabs:
+  - {fileID: 8440129639781896293, guid: 0bf82c751f5f3cd489d56dcb1bce8890, type: 3}
+  - {fileID: 8326831592933999082, guid: a0bc84c8eee8aa641a9d46b6abf611b6, type: 3}
+  - {fileID: 8440129639781896293, guid: 1ed10540a2c1bd248a42906a2f25a12a, type: 3}
+  - {fileID: 8440129639781896293, guid: 7f6c8075c9301ad4394183926b777cd8, type: 3}
+  - {fileID: 8326831592933999082, guid: 35f9ad77557e1ff4780ceed7e58ad389, type: 3}
+  - {fileID: 8440129639781896293, guid: 46a54c31621c33945a082c3eac930fbb, type: 3}
   spawnRateLowerBound: 0.1
   spawnRateUpperBound: 1
 --- !u!1 &116321762
@@ -7194,6 +7200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500e6cada7a513c4fbf9a2dd957e840b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  money: 1000
 --- !u!4 &1305431557
 Transform:
   m_ObjectHideFlags: 0
@@ -8745,7 +8753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1735116908
 MonoBehaviour:
   m_ObjectHideFlags: 0

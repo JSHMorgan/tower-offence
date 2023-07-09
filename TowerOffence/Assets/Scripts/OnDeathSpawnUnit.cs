@@ -8,7 +8,7 @@ public class OnDeathSpawnUnit : MonoBehaviour
 
     private void Update()
     {
-        if (GetComponent<Unit>().Health == 0)
+        if (GetComponent<Unit>().Health <= 0)
         {
             PointsBasedMovement pointsBasedMovement = gameObject.GetComponent<PointsBasedMovement>();
             int currentPointTarget = pointsBasedMovement.CurrentPointTarget;

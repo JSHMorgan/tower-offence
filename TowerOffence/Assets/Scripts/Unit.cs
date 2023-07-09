@@ -10,7 +10,6 @@ public class Unit : MonoBehaviour
     [SerializeField] private float speed = 5;
     [SerializeField] private int cost = 0;
 
-    public bool HasPaladinShield { get; set; }
     public bool HasSpeedUp { get; set; }
     public bool HasHealthUp { get; set; }
 
@@ -37,25 +36,26 @@ public class Unit : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (health == 0)
+        if (health <= 0)
         {
-            GameManager.Instance.Units.Remove(gameObject);
-            Destroy(gameObject);
-            return;
+            StartCoroutine(HandleDestruction());
         }
     }
 
     internal void DealDamage(int damageValue)
     {
-        if (HasPaladinShield)
-        {
-            return;
-        }
         Health -= damageValue;
     }
 
     internal float GetDistanceFromPoint(Vector3 point)
     {
         return Vector2.Distance(transform.position, point);
+    }
+
+    IEnumerator HandleDestruction()
+    {
+        yield return new WaitForEndOfFrame();
+        GameManager.Instance.Units.Remove(gameObject);
+        Destroy(gameObject);
     }
 }

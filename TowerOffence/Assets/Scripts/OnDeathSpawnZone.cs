@@ -8,7 +8,7 @@ public class OnDeathSpawnZone : MonoBehaviour
     [SerializeField] private GameObject zonePrefab;
     private void Update()
     {
-        if (GetComponent<Unit>().Health == 0)
+        if (GetComponent<Unit>().Health <= 0)
         {
             var zone = Instantiate(zonePrefab, transform.position, Quaternion.identity);
             zone.GetComponent<SpriteRenderer>().color = gameObject.GetComponent<SpriteRenderer>().color;

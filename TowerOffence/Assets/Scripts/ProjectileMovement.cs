@@ -32,7 +32,7 @@ public class ProjectileMovement : MonoBehaviour
         transform.rotation = targetRotation;
 
         // Destroy the Projectile when within a certain distance of the unit.
-        if (Vector2.Distance(transform.position, Unit.transform.position) < unitDistance)
+        if (Unit.GetComponent<Unit>().GetDistanceFromPoint(transform.position) < unitDistance)
         {
             Destroy(gameObject);
             Unit.GetComponent<Unit>().Health--;

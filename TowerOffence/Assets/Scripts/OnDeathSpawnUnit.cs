@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnOnDeath : MonoBehaviour
+public class OnDeathSpawnUnit : MonoBehaviour
 {
     [SerializeField] private GameObject playerPrefab;
 

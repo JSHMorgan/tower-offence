@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 3292914265488735072}
   - component: {fileID: -5421452336713103580}
   - component: {fileID: 1039288576130058943}
-  - component: {fileID: -6130248056493630894}
   m_Layer: 0
-  m_Name: Unit_SpawnerDiamond
+  m_Name: Unit_HeavyCircle
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: a34d34f07c4b9e44a8e0b5b15208ea7f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0.5188679, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,9 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dca7b1a563189b478c9e92f002be3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 3625043607559282579, guid: a34d34f07c4b9e44a8e0b5b15208ea7f, type: 3}
-  health: 5
-  damageToPlayerHealth: 1
+  sprite: {fileID: -2413806693520163455, guid: be77cca741a523847bd4e057985acbda, type: 3}
+  health: 10
 --- !u!114 &1039288576130058943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,18 +112,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93945ac94000b244b8782949e755f2e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2.5
   pointDistance: 0.1
---- !u!114 &-6130248056493630894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8440129639781896293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d605f2cdbab6693488468d65bba87f9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 8440129639781896293, guid: 7f6c8075c9301ad4394183926b777cd8, type: 3}

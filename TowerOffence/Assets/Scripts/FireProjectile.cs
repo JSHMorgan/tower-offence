@@ -132,7 +132,6 @@ public class FireProjectile : MonoBehaviour
         {
             yield return new WaitUntil(() => target != null);
             projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
-            projectile.transform.SetParent(transform);
             projectile.GetComponent<SpriteRenderer>().sprite = projectileSprite;
             projectile.GetComponent<ProjectileMovement>().Unit = target;
             yield return new WaitForSeconds(1.0f / fireRate);

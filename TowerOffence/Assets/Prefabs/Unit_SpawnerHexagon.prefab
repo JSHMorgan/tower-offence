@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2747690628134850419, guid: 80dfce9f85e8bee44a23bfbe542900d9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.4760489, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 2747690628134850419, guid: 80dfce9f85e8bee44a23bfbe542900d9, type: 3}
   health: 5
-  damageToPlayerHealth: 1
+  speed: 5
 --- !u!114 &1039288576130058943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,8 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93945ac94000b244b8782949e755f2e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  pointDistance: 0.1
 --- !u!114 &-6130248056493630894
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,20 +6,13 @@ using UnityEngine;
 
 public class PointsBasedMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5.0f;
-    [SerializeField] private float pointDistance = 0.1f;
+    private readonly float pointDistance = 0.1f;
 
     private Transform[] points;
 
     public int CurrentPointTarget { get; set; } = 0;
 
     public Transform[] Points { get => points; private set => points = value; }
-
-    public float Speed
-    {
-        get => speed;
-        private set => speed = value;
-    }
 
     private void Start()
     {
@@ -35,7 +28,7 @@ public class PointsBasedMovement : MonoBehaviour
             return;
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, points[CurrentPointTarget].transform.position, speed * Time.fixedDeltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, points[CurrentPointTarget].transform.position, GetComponent<Unit>().Speed * Time.fixedDeltaTime);
 
         if (GetDistanceToCurrentPointTarget() < pointDistance)
         {

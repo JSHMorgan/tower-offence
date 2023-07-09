@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
 
@@ -9,6 +10,7 @@ public class Unit : MonoBehaviour
     [SerializeField] private int health = 5;
     [SerializeField] private float speed = 5;
     [SerializeField] private int cost = 0;
+    [SerializeField] private int damage = 1;
 
     public bool HasSpeedUp { get; set; }
     public bool HasHealthUp { get; set; }
@@ -48,9 +50,14 @@ public class Unit : MonoBehaviour
         }
     }
 
-    internal void DealDamage(int damageValue)
+    internal void TakeDamage(int damageValue)
     {
         Health -= damageValue;
+    }
+
+    internal void DealDamage()
+    {
+        GameManager.Instance.PlayerHealth -= damage;
     }
 
     internal float GetDistanceFromPoint(Vector3 point)

@@ -24,6 +24,7 @@ public class PointsBasedMovement : MonoBehaviour
     {
         if (CurrentPointTarget == points.Length)
         {
+            GetComponent<Unit>().DealDamage();
             Destroy(gameObject);
             return;
         }

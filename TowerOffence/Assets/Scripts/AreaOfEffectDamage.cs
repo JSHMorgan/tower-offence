@@ -38,7 +38,7 @@ public class AreaOfEffectDamage : MonoBehaviour
             StartCoroutine(HandleFireRate());
             foreach (var unit in unitsInRadius)
             {
-                unit.GetComponent<Unit>().DealDamage(damage);
+                unit.GetComponent<Unit>().TakeDamage(damage);
             }
         }
     }

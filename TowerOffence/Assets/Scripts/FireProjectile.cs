@@ -17,6 +17,7 @@ public class FireProjectile : MonoBehaviour
     [SerializeField] private float rotationSpeed = 500f;
     [Tooltip("Number of projectiles fired per second.")]
     [SerializeField] private float fireRate = 2.0f;
+    [SerializeField] private int damage = 1;
     [SerializeField] private Sprite projectileSprite;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private AimingOption aimingOption = AimingOption.First;
@@ -134,6 +135,7 @@ public class FireProjectile : MonoBehaviour
             projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
             projectile.GetComponent<SpriteRenderer>().sprite = projectileSprite;
             projectile.GetComponent<ProjectileMovement>().Unit = target;
+            projectile.GetComponent<ProjectileMovement>().Damage = damage;
             yield return new WaitForSeconds(1.0f / fireRate);
         }
     }

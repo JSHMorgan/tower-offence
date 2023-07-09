@@ -13,16 +13,6 @@ public class Unit : MonoBehaviour
     public bool HasSpeedUp { get; set; }
     public bool HasHealthUp { get; set; }
 
-    private void Awake()
-    {
-        GameManager.Instance.Units.Add(gameObject);
-        Debug.Log(gameObject + " added to unit list.");
-        if (sprite != null)
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
-        }
-    }
-
     public int Health
     { 
         get => health;
@@ -38,6 +28,16 @@ public class Unit : MonoBehaviour
     {
         get => cost;
         set => cost = value;
+    }
+
+    private void Awake()
+    {
+        GameManager.Instance.Units.Add(gameObject);
+        Debug.Log(gameObject + " added to unit list.");
+        if (sprite != null)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
+        }
     }
 
     private void LateUpdate()

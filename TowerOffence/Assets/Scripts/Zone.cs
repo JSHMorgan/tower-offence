@@ -7,7 +7,6 @@ public abstract class Zone : MonoBehaviour
     [SerializeField] protected float lifetime;
     [SerializeField] protected float radius;
 
-
     private void Start()
     {
         StartCoroutine(DestroyAfterLifetime());
@@ -17,6 +16,5 @@ public abstract class Zone : MonoBehaviour
     {
         yield return new WaitForSeconds(lifetime);
         Destroy(gameObject);
-        
     }
 }

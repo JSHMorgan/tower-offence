@@ -8,11 +8,6 @@ public class SpeedZone : Zone
     [SerializeField] private float speedUpValue;
     [SerializeField] private float speedUpTime;
 
-    private void Start()
-    {
-        StartCoroutine(DestroyAfterLifetime());
-    }
-
     // Update is called once per frame
     private void Update()
     {

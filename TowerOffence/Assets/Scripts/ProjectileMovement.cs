@@ -9,6 +9,9 @@ public class ProjectileMovement : MonoBehaviour
     [SerializeField] private float projectileSpeed = 2.0f;
     [SerializeField] private float acceleration = 1.0f;
     [SerializeField] private float unitDistance = 0.1f;
+
+    public int Damage { get; set; }
+
     public GameObject Unit { get; set; }
 
     private void FixedUpdate()
@@ -35,7 +38,7 @@ public class ProjectileMovement : MonoBehaviour
         if (Unit.GetComponent<Unit>().GetDistanceFromPoint(transform.position) < unitDistance)
         {
             Destroy(gameObject);
-            Unit.GetComponent<Unit>().Health--;
+            Unit.GetComponent<Unit>().Health -= Damage;
         }
     }
 }

@@ -34,6 +34,12 @@ public class Unit : MonoBehaviour
         set => speed = value; 
     }
 
+    public int Cost
+    {
+        get => cost;
+        set => cost = value;
+    }
+
     private void LateUpdate()
     {
         if (health <= 0)
